@@ -1,0 +1,5 @@
+<%= form_for @file do |f| %>
+<%= f.hidden_field :file, id: nil %>
+<%= f.file_field :file %>
+<%= f.submit %>
+<% end %>

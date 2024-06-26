@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
   root to: "home#index"
   resources :users
+  get "home" => "storage_files#upload"
+  resources :storage_files
 
   # Defines the root path route ("/")
   # root "posts#index"
