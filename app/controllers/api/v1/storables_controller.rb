@@ -1,8 +1,9 @@
-class Api::V1::StorablesController < Api:V1:ApiController
+class Api::V1::StorablesController < Api::V1::ApiController
   before_action :set_file, except: [:index]
 
   def index
     @storables = current_user.storables
+    render json: { storables: @storables }, status: :ok
   end
 
   def update
@@ -15,7 +16,7 @@ class Api::V1::StorablesController < Api:V1:ApiController
 
   def destroy
     if @storable.destroy
-      render json: { message: "File deleted" }
+      render json: { message: 'File deleted' }
     else
       render json: { errors: @storable.errors.full_messages }, status: :unprocessable_entity
     end

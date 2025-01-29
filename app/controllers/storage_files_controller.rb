@@ -1,7 +1,6 @@
 class StorageFilesController < ApplicationController
+  before_action :set_file, only: %i[edit update destroy]
 
-  before_action :set_file, only: [:edit, :update, :destroy]
-  
   def upload
     @file = Storage::File.new
   end
@@ -21,15 +20,12 @@ class StorageFilesController < ApplicationController
     @folders = Storage::Folder.all
   end
 
-  def update
-  end
+  def update; end
 
-  def destroy
-  end
+  def destroy; end
 
-  def edit
-  end
-  
+  def edit; end
+
   private
 
   def set_file
